@@ -55,3 +55,4 @@ Es el componente encargado de la persistencia de la infromación en el servidor.
 * Inventario de las instalaciones (pistas, tipos de superficie).
 * Histórico completo de reservas y sus estados.
 * Transacciones económicas y facturas.
+
