@@ -16,6 +16,8 @@ Ademas, este proceso presenta una conexión directa con los principales problema
 
 El proceso **Reserva → Uso → Facturación** se considera una palanca para la competitividad porque su mejora repercute directamente en varios de los factores clave que determinan el rendimiento del club.
 
+
+
 ### 1. Impacto directo en la experiencia del usuario.
 
 La primera razón es que este proceso es el principal punto de contacto operativo entre el club y el usuario. Para un socio o cliente externo, la percepción del servicio no depende solo de la calidad de la instalación, sino también de la facilidad con la que puede reservar, recibir confirmación, modificar su reserva, entender sus condiciones y completar el proceso sin fricciones.
@@ -23,6 +25,8 @@ La primera razón es que este proceso es el principal punto de contacto operativ
 Si este flujo es lento, confuso o depende en exceso de la atención manual, la experiencia del usuario empeora. En cambio, si el proceso es ágil, transparente y accesible, la percepción de calidad aumenta y con ella la probabilidad de fidelización.
 
 Por ello, mejorar este proceso no significa solo hacer más eficiente la administración del club, sino también elevar la calidad percibida del servicio principal.
+
+
 
 ### 2. Impacto en la ocupación y en el aprovechamiento de instalaciones
 
@@ -32,6 +36,8 @@ Las pistas son un activo con disponibilidad finita por franjas horarias, por lo 
 
 Desde esta perspectiva, el proceso E2E elegido no solo organiza la operación, sino que condiciona el rendimiento del principal activo físico del club.
 
+
+
 ### 3. Impacto económico y control del ingreso.
 
 La tercera razón es su relación directa con la generación y aseguramiento de ingresos. En el caso del club, cada reserva puede derivar en un cobro puntual, en un cargo asociado a una membresía o en una liquidación posterior. Si el proceso no está correctamente trazado, pueden producirse pérdidas económicas por impagos, reservas mal registradas, cobros incompletos o falta de evidencia sobre el servicio prestado.
@@ -39,6 +45,8 @@ La tercera razón es su relación directa con la generación y aseguramiento de 
 Al integrar la reserva, el uso efectivo y la facturación dentro de un único flujo controlado, el club gana capacidad para asegurar que el servicio realmente se transforma en ingreso registrado. Esto reduce errores administrativos, mejora el control económico y refuerza la sostenibilidad del modelo de negocio.
 
 Por tanto, el proceso actúa como palanca competitiva también porque conecta directamente servicio prestado e ingreso controlado.
+
+
 
 ### 4. Capacidad de medición y mejora continua.
 
@@ -55,11 +63,14 @@ Esto significa que no solo es un proceso importante, sino también un proceso me
 
 Un proceso que se puede medir con claridad tiene una ventaja metodológica enorme dentro del laboratorio, porque permite aplicar enfoques de mejora continua, análisis de rendimiento y rediseño con evidencias, no solo con intuiciones.
 
+
+
 ### 5. Viabilidad real de automatización.
 
 Finalmente, este proceso también se mantiene como eje del proyecto porque presenta una viabilidad alta de automatización. Muchas de sus etapas pueden digitalizarse y controlarse mediante un sistema web con reglas claras: comprobación de disponibilidad, confirmaciones automáticas, validaciones de reserva, restricciones por impago, gestión de cancelaciones, registro del uso y control del pago.
 
 Esto lo convierte en un proceso idóneo para la construcción del SIA, ya que permite demostrar de forma clara cómo una solución tecnológica puede aportar valor real al negocio. No se trata de automatizar por automatizar, sino de elegir un proceso donde la tecnología tenga un efecto visible en eficiencia, control, experiencia y datos.
+
 
 
 ## Relación entre el proceso E2E y la competitividad del club.
