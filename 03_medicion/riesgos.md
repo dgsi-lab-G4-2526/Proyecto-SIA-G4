@@ -11,3 +11,4 @@ Se han identificado los siguientes riesgos críticos que podrían afectar la ope
 * **Descripción**: Fallo crítico en el servidor de aplicaciones o en la pasarela de pagos que impida realizar reservas o cobros automáticos en tiempo real.
 * **Impacto**: Saturación del personal administrativo (vuelta al modelo manual), pérdida de ingresos inmediatos y posibles errores por solapamiento de reservas.
 * **Mitigación**: Arquitectura con copias de seguridad automáticas diarias y un protocolo de pagos manuales de contingencia para evitar el bloqueo del servicio.
+
