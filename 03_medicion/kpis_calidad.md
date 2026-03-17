@@ -1,4 +1,4 @@
-# Definición de KPIs y métricas de control
+# Definición de KPIs, métricas de control y calidad del dato
 
 Este documento define los tres indicadores clave (KPIs) diseñados para monitorizar la eficiencia operativa y la fiabilidad de la información en el proceso E2E del Club de Tenis.
 
@@ -54,7 +54,18 @@ Alcanzar un 99% de fiabilidad para evitar reclamaciones y procesos de correcció
 
 ---
 
-## 4. Criterios de aceptación (Definition of Done - DoD)
+## 4. Métrica de Calidad del Dato - DQ (Responsable: SM)
+
+Para asegurar que la automatización del proceso de reserva sea efectiva, se define el siguiente control de calidad sobre la información:
+
+* **Dato Crítico:** Email del Socio.
+* **Métrica de Calidad:** Completitud y Validez (formato estándar `usuario@dominio.com` y no nulo).
+* **Fórmula:** (Nº de socios con email válido / Total de socios registrados) * 100.
+* **Impacto en el Negocio:** Un email incorrecto impide que el sistema envíe automáticamente las facturas y los recordatorios de reserva. Esto obliga al personal de recepción a intervenir manualmente, lo que anula la eficiencia buscada y degrada directamente el KPI de **"Tiempo medio de reserva"**.
+
+---
+
+## 5. Criterios de aceptación (Definition of Done - DoD)
 
 Esta tarea se considera finalizada cuando:
 
