@@ -9,6 +9,6 @@ Como **Scrum Master**, certifico el cierre del segundo sprint con los siguientes
 * **Arquitectura:** Diseño del Blueprint SIA y encaje CRM/ERP (Issues #22, #23).
 
 ### Estado del Tablero
-* **Issues cerradas:** 100% (9/11).
+* **Issues cerradas:** 100% (11/11).
 * **Trazabilidad:** Todos los entregables están vinculados a su correspondiente Issue mediante commits.
 * **Calidad del Dato:** Se ha integrado la validación del email del socio como factor crítico para la automatización.
