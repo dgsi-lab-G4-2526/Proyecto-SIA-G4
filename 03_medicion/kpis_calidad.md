@@ -11,11 +11,14 @@ Este indicador mide la agilidad del proceso administrativo desde que se inicia l
 ### Definición
 Tiempo transcurrido entre el estado "Reserva Solicitada" y el estado "Reserva Confirmada".
 
-### Fórmula
-$\sum (Hora\_Confirmación - Hora\_Solicitud) / Número\_Total\_Reservas$.
-
-### Objetivo
-Reducir el tiempo de espera del usuario y automatizar las validaciones para que este tiempo sea inferior a 2 minutos en el canal online.
+### Detalles Técnicos
+* **Eventos:**
+  * Inicio: creación de la reserva web (timestamp del estado "Reserva Solicitdad").
+  * Fin: confirmación automática (timestamp del estado "Reserva Confimada").
+* **Fórmula:** $\sum (Hora\_Confirmación - Hora\_Solicitud) / Número\_Total\_Reservas$.
+* **Fuente de datos:** log transaccional del sistema SIA (tabla de histórico de estados).
+* **Baseline:** al ser actualmente un proceso manual (teléfono/WhatsApp), el baseline estimado es de 15 minutos (tiempo medio entre que el usuario escribe/llama, recepción lo lee, revisa el Excel y confirma).
+* **Objetivo:** reducir el tiempo de espera del usuario y automatizar las validaciones para que este tiempo sea inferior a 2 minutos en el canal online.
 
 ---
 
@@ -26,11 +29,14 @@ Mide el nivel de aprovechamiento de los activos críticos del club (las pistas).
 ### Definición
 Relación entre las franjas horarias realmente utilizadas y la capacidad total instalada.
 
-### Fórmula
-$(Franjas\_en\_estado\_"Uso" / Total\_franjas\_ofertadas) \times 100$.
-
-### Objetivo
-Superar el 75% de ocupación en franjas "Prime Time" y optimizar las horas valle mediante promociones.
+### Detalles Técnicos
+* **Eventos:**
+  * Numerador: suma de franjas horarias que han alcanzado el estado "Reserva en uso" (Check-in real).
+  * Denominador: total de franjas horarias disponibles de todas las pistas operativas.
+* **Fórmula:** $(Franjas\_en\_estado\_"Uso" / Total\_franjas\_ofertadas) \times 100$.
+* **Fuente de datos:** base de datos operativa del SIA (cruce entre entidad PISTAS y estado final de RESERVAS).
+* **Baseline:** se estima un 60% de ocupación actual (basado en la intuición de dirección), aunque el dato real está distorsionado por la falta de registro de los "No-shows". Al implantar el SIA, el sistema lo medirá contando automáticamente los chack-ins físicos.
+* **Objetivo:** superar el 75% de ocupación en franjas "Prime Time" y optimizar las horas valle mediante promociones.
 
 ---
 
@@ -49,8 +55,14 @@ $(Registros\_Correctos / Total\_Registros\_Creados) \times 100$
 - Registros con DNI/Email validados correctamente.
 - Reservas cerradas cuyo importe coincide exactamente con la tarifa aplicada.
 
-### Objetivo
-Alcanzar un 99% de fiabilidad para evitar reclamaciones y procesos de corrección manual.
+### Detalles Tecnicos
+* **Eventos:**
+  * Numerador: reservas cerradas cuyo importe coincide exactamente con la tarifa teórica y usuarios con email/DNI en formato válido.
+  * Demoninador: total de registros generados en el sistema en un periodo.
+* **Fórmula:** $(Registros\_Correctos / Total\_Registros\_Creados) \times 100$
+* **Fuente de datos:** motor de reglas y validaciones del SIA y logs de sincronización con el ERP.
+* **Baseline:** se estima un 85% de calidad actual, ya que el registro manual en hojas de cálculo genera freceuntes errores tipográficos (emails incorrectos) y descuadres entre lo apuntado y lo cobrado.
+* **Objetivo:** alcanzar un 99% de fiabilidad para evitar reclamaciones y procesos de corrección manual.
 
 ---
 
