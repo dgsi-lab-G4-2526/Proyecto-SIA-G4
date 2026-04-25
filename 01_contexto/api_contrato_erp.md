@@ -65,6 +65,7 @@ El endpoint `POST /factura` debe recibir los siguientes datos mínimos:
 
 ### Ejemplo de petición
 
+```json
 {
   "id_factura_origen_sia": "FAC-SIA-2026-000145",
   "id_reserva": "RES-2026-000982",
@@ -91,6 +92,7 @@ El endpoint `POST /factura` debe recibir los siguientes datos mínimos:
   "origen": "SIA",
   "correlation_id": "req-2026-04-25-0104"
 }
+```
 
 
 
@@ -122,6 +124,20 @@ El ERP devolverá la información necesaria para confirmar si la factura ha sido
 }
 ```
 
+### Relación con BAM y trazabilidad
+
+Este contrato API está directamente relacionado con la arquitectura de eventos y monitorización del sistema.
+
+La secuencia esperada es la siguiente:
+
+El usuario completa el flujo de pago.
+El sistema registra TX_PAYMENT_SUCCESS.
+El SIA ejecuta la validación técnica de correo mediante EVT_04_CHECK_DQ_EMAIL.
+Si ambas condiciones son satisfactorias, el SIA invoca POST /factura.
+El ERP responde confirmando o rechazando la generación de la factura.
+El SIA registra el resultado y continúa el cierre del proceso.
+
+
 ## Reglas de negocio asociadas
 
 Esta integración está directamente relacionada con reglas ya definidas en el proyecto:
@@ -147,6 +163,10 @@ Para que la integración funcione correctamente, los datos enviados al ERP deben
 ### 4. Trazabilidad entre reserva y factura
 
 La existencia de `id_reserva` e `id_factura_origen_sia` permite mantener la trazabilidad entre el servicio operativo gestionado por el SIA y la factura legal consolidada en el ERP.
+
+### 5. Dependencia de eventos BAM previos
+
+La solicitud de factura al ERP solo debe ejecutarse si previamente se ha registrado un evento TX_PAYMENT_SUCCESS y la validación EVT_04_CHECK_DQ_EMAIL ha sido satisfactoria.
 
 ## Códigos de respuesta propuestos
 

@@ -90,19 +90,38 @@ El CRM devolverá los siguientes datos, porque son los estrictamente necesarios 
   "motivo_bloqueo": "Socio con cuotas pendientes de pago"
 }
 ```
+
+### Relación con BAM y trazabilidad
+
+Este contrato API está directamente relacionado con la arquitectura de eventos definida para la monitorización de actividad de negocio.
+
+La secuencia esperada es la siguiente:
+
+El usuario inicia la solicitud de reserva.
+El sistema registra EVT_01_SOLICITUD_CREADA.
+El SIA invoca GET /socio/id para validar el estado del socio.
+Si la respuesta es válida, se registra EVT_02_VALIDACION_CRM_OK.
+El proceso puede continuar hacia RESERVA_CONFIRMADA.
+
+
+
 ## Reglas de negocio asociadas
 
 Esta integración está directamente relacionada con reglas ya definidas en el proyecto:
 
-### Validación de pagos pendientes
+### 1. Validación de pagos pendientes
 
 El sistema impedirá reservar a socios con recibos pendientes.
 
-### CRM como dueño del dato de usuario
+### 2.CRM como dueño del dato de usuario
 El SIA consume el dato, pero no es el sistema maestro del socio. Cualquier actualización de perfil debe sincronizarse con el CRM.
 
-### Uso del email como dato crítico
+### 3. Uso del email como dato crítico
 El email es necesario porque afecta a notificaciones y facturación, y además ya se ha identificado como dato relevante para la calidad de la información.
+
+### 4. Dependencia del flujo BAM
+
+La confirmación de reserva no debe realizarse si la validación CRM no ha sido satisfactoria. Por ello, la transición hacia RESERVA_CONFIRMADA depende de que exista previamente una respuesta válida del CRM y del registro de EVT_02_VALIDACION_CRM_OK.
 
 ### Códigos de respuesta propuestos
 - 200 OK → socio identificado correctamente.
