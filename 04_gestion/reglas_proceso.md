@@ -28,6 +28,18 @@ El proceso "To-Be" se basa en una máquina de estados finitos. Cada transición 
 
 ## 2. Reglas de Negocio, Validaciones y Calidad del Dato
 
+Para asegurar la operabilidad, el SIA aplica un motor de reglas (Business Rules Engine) que filtra la información antes de persistir cualquier dato en los sistemas maestros (SoR).
+
+### 2.1. Reglas de Validación de Negocio
+* **Regla de Simultaneidad:** Un socio no puede poseer más de una reserva activa en el mismo bloque horario. Esto evita el acaparamiento indebido de pistas y maximiza la disponibilidad.
+* **Regla de Antelación:** Las reservas solo pueden realizarse con un máximo de 7 días de antelación y un mínimo de 30 minutos antes del inicio del bloque seleccionado.
+* **Regla de Saldo Pendiente:** Si la consulta al CRM devuelve una deuda mayor a 0€, el sistema bloquea el flujo y redirige al socio a la pasarela de "Pago de Cuotas" antes de permitir la selección de una nueva pista.
+
+### 2.2. Reglas de Calidad del Dato (DQ - Requisito Crítico)
+El campo **Email** se ha identificado como el "Atributo Crítico para la Operación", dado que impacta en la facturación y en la entrega del código QR de acceso.
+* **Validación Sintáctica:** El sistema aplica una validación mediante expresión regular (`^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$`) en el evento `EVT_04_CHECK_DQ_EMAIL`.
+* **Validación de Existencia:** Si el CRM devuelve un perfil con el campo email vacío o nulo, el sistema lanza una excepción inmediata.
+* **Impacto en Proceso:** Ante un fallo de DQ, el sistema bloquea el paso al estado "CERRADA", ya que el ERP rechazaría la factura por falta de receptor legal. La reserva se marca con el flag `PENDIENTE_CORRECCION_DQ` para "Intervención Manual de Recepción" a la llegada del socio.
 
 ---
 
