@@ -44,3 +44,15 @@ El campo **Email** se ha identificado como el "Atributo Crítico para la Operaci
 ---
 
 ## 3. Gestión de Excepciones y Resiliencia (Playbook de Errores)
+
+Se han definido protocolos automáticos de actuación para que el proceso no se detenga por completo ante fallos técnicos de terceros o errores humanos, garantizando la continuidad del negocio.
+
+### 3.1. Excepciones de Integración (Fallos Tecnológicos)
+* **Timeout de Pasarela (Error 504):** Si la pasarela de pago (Stripe) no responde en 10 segundos, el sistema registra el evento `EVT_03_FALLO_PAGO_TECNICO`.
+    * **Plan de Mitigación:** Se activa el "Modo Contingencia". El sistema confirma la reserva con el estado `PAGO_EN_RECEPCION` y envía una alerta al terminal del empleado de pista para realizar el cobro manual mediante TPV físico.
+* **Caída del CRM (Error 503):** Si el CRM está inoperativo, el SIA aplica la "Regla de Confianza". Si el socio tiene el código QR de su última reserva guardado en caché en la app, se le permite el acceso temporal, marcando la transacción como `PENDIENTE_SINCRO`.
+* **Error de Facturación ERP (Error 422/500):** Si el ERP rechaza el *payload* de la factura, el SIA no interrumpe el uso de la pista. Encola la petición en un sistema de reintentos automáticos (Retry Policy) que volverá a invocar la API cada 30 minutos.
+
+### 3.2. Excepciones de Usuario y Operación Físicas
+* **Fallo de Hardware (QR No Válido / Error de Escaneo):** Si el sensor IoT de la pista falla al leer el código QR en el dispositivo móvil del socio, el sistema permite la apertura manual introduciendo en el teclado numérico de la puerta un PIN de 4 dígitos enviado por SMS como *backup*.
+* **Abandono en Checkout:** Si el usuario cierra la aplicación durante el proceso de pago, se activa el evento `EVT_05_TIMEOUT_PAGO`. El sistema libera la pista en menos de 60 segundos para evitar bloqueos prolongados, optimizando la métrica del KPI de "Tasa de Ocupación".
