@@ -28,11 +28,11 @@ Para asegurar que el sistema se mantiene bajo control una vez en funcionamiento,
 * **Control de Ocupación:** Monitorizar semanalmente que la ocupación de pistas no baje del target establecido.
 * **Acción ante desviaciones:** Si la ocupación es baja, coordinar con el club promociones de última hora basadas en los datos del sistema.
 
-### ⚙️ Supervisión de Metodología y Flujo (Responsable: Jimena González - SM)
+### Supervisión de Metodología y Flujo (Responsable: Jimena González - SM)
 * **Control de Tiempos:** Revisar que el **Tiempo Medio de Reserva** no aumente debido a cuellos de botella técnicos o administrativos.
 * **Acción ante desviaciones:** Facilitar sesiones de revisión para optimizar el flujo si el sistema se vuelve lento o ineficiente.
 
-### 🛡️ Supervisión de Integridad y Calidad (Responsables: Jennifer García y Álvaro Mora - Analistas)
+### Supervisión de Integridad y Calidad (Responsables: Jennifer García y Álvaro Mora - Analistas)
 * **Control de Calidad del Dato (DQ):** Auditar periódicamente que el índice de errores en registros y pagos sea inferior al 1%.
 * **Acción ante desviaciones:** Ajustar las **Reglas de Validación** si se detectan entradas de datos incoherentes o fraudulentas.
 
