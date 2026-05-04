@@ -1,4 +1,4 @@
-# 📊 Instrumentación de Eventos y Monitorización (BAM)
+# Instrumentación de Eventos y Monitorización (BAM)
 
 Para asegurar la operabilidad del Sistema de Información Automatizado (SIA) y la veracidad de los KPIs definidos en el Sprint 2, se establece la siguiente arquitectura de eventos para la Monitorización de Actividad de Negocio (BAM).
 

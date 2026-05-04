@@ -1,4 +1,4 @@
-# ⚠️ Diseño de Alertas y Notificaciones de Control
+# Diseño de Alertas y Notificaciones de Control
 
 Para asegurar que el proceso To-Be se mantiene dentro de los parámetros de calidad esperados y mitigar los riesgos operativos, se ha definido el siguiente protocolo de alerta automatizada (BAM mínimo).
 

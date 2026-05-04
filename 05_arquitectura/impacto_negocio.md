@@ -4,7 +4,7 @@ La materialización del prototipo y la especificación operable del proceso "To-
 
 ## 1. Impacto Esperado en KPIs (Mecanismo y Target)
 
-[cite_start]El MVP diseñado mejora significativamente la eficiencia operativa impactando directamente en al menos dos de nuestros KPIs principales[cite: 78]:
+El MVP diseñado mejora significativamente la eficiencia operativa impactando directamente en al menos dos de nuestros KPIs principales:
 
 ### KPI 1: Tiempo de Reserva (Lead Time)
 * **Mecanismo de Mejora:** Al automatizar la consulta al CRM (estado del socio) y habilitar una pasarela de pago integrada, se elimina por completo la necesidad de validación manual y cobro en la recepción física.
@@ -18,9 +18,9 @@ La materialización del prototipo y la especificación operable del proceso "To-
 
 ## 2. Análisis de Trade-offs (Riesgos vs. Beneficios)
 
-Toda decisión arquitectónica y de negocio implica compromisos. [cite_start]La implementación de este proceso To-Be introduce el siguiente *trade-off*[cite: 79]:
+Toda decisión arquitectónica y de negocio implica compromisos. La implementación de este proceso To-Be introduce el siguiente *trade-off*:
 
 * **El Trade-off:** Dependencia Tecnológica vs. Eficiencia Operativa.
-* [cite_start]**Riesgo / Coste introducido:** Al automatizar el acceso mediante pago online y código QR, el club adquiere una alta dependencia de servicios de terceros (Pasarela de pago Stripe, disponibilidad de la nube)[cite: 79]. Si el proveedor falla, el proceso central de negocio se detiene. Además, se asume el riesgo de "brecha digital" para aquellos socios de mayor edad menos habituados a usar apps.
-* [cite_start]**Mecanismo de Control:** 1. **Tecnológico:** Se ha instrumentado la alerta operativa `ALT_01_PAYMENT_DROP` (definida en el BAM) que avisa instantáneamente si la pasarela cae, habilitando un "modo degradado" (fallback) que permite pagar en recepción temporalmente[cite: 76, 79].
-  2. [cite_start]**Negocio:** Se mantendrá un terminal físico en recepción (Terminal de Punto de Venta) operado por un empleado para asistir a los socios con dificultades digitales, garantizando que el coste de la digitalización no suponga la pérdida de clientes[cite: 79].
+* **Riesgo / Coste introducido:** Al automatizar el acceso mediante pago online y código QR, el club adquiere una alta dependencia de servicios de terceros (Pasarela de pago Stripe, disponibilidad de la nube). Si el proveedor falla, el proceso central de negocio se detiene. Además, se asume el riesgo de "brecha digital" para aquellos socios de mayor edad menos habituados a usar apps.
+* **Mecanismo de Control:** 1. **Tecnológico:** Se ha instrumentado la alerta operativa `ALT_01_PAYMENT_DROP` (definida en el BAM) que avisa instantáneamente si la pasarela cae, habilitando un "modo degradado" (fallback) que permite pagar en recepción temporalmente.
+  2. **Negocio:** Se mantendrá un terminal físico en recepción (Terminal de Punto de Venta) operado por un empleado para asistir a los socios con dificultades digitales, garantizando que el coste de la digitalización no suponga la pérdida de clientes.
